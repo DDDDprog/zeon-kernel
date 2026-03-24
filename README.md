@@ -1,7 +1,6 @@
 <!-- Zeon - Pure Rust Operating System -->
 <!-- https://github.com/DDDDprog/zeon-kernel -->
 
-<!-- Zeon - Zeon -->
 # Zeon
 
 ![Architecture](https://img.shields.io/badge/arch-aarch64-blue)

@@ -1,0 +1,124 @@
+# Filesystem build rules for Zeon
+
+# All filesystems
+group("fs") {
+  deps = [
+    "//gn/fs:vfs",
+    "//gn/fs:tmpfs",
+    "//gn/fs:fat32",
+    "//gn/fs:ext4",
+    "//gn/fs:proc",
+    "//gn/fs:devfs",
+    "//gn/fs:sysfs",
+  ]
+}
+
+# Virtual File System
+rust_library("vfs") {
+  crate_name = "zeon_vfs"
+  
+  sources = [
+    "//src/fs/mod.rs",
+    "//src/fs/dir.rs",
+    "//src/fs/fops.rs",
+    "//src/fs/open_file.rs",
+    "//src/fs/pipe.rs",
+    "//src/fs/reg.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# TMPFS (Memory filesystem)
+rust_library("tmpfs") {
+  crate_name = "zeon_fs_tmpfs"
+  
+  sources = [
+    "//src/drivers/fs/tmpfs.rs",
+    "//libkernel/src/fs/filesystems/tmpfs.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/fs:vfs" ]
+}
+
+# FAT32 Filesystem
+rust_library("fat32") {
+  crate_name = "zeon_fs_fat32"
+  
+  sources = [
+    "//src/drivers/fs/fat32.rs",
+    "//libkernel/src/fs/filesystems/fat32/mod.rs",
+    "//libkernel/src/fs/filesystems/fat32/bpb.rs",
+    "//libkernel/src/fs/filesystems/fat32/dir.rs",
+    "//libkernel/src/fs/filesystems/fat32/fat.rs",
+    "//libkernel/src/fs/filesystems/fat32/file.rs",
+    "//libkernel/src/fs/filesystems/fat32/reader.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/fs:vfs" ]
+}
+
+# EXT4 Filesystem
+rust_library("ext4") {
+  crate_name = "zeon_fs_ext4"
+  
+  sources = [
+    "//src/drivers/fs/ext4.rs",
+    "//libkernel/src/fs/filesystems/ext4/mod.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/fs:vfs" ]
+}
+
+# Proc Filesystem
+rust_library("proc") {
+  crate_name = "zeon_fs_proc"
+  
+  sources = [
+    "//src/drivers/fs/proc.rs",
+    "//src/drivers/fs/proc/root.rs",
+    "//src/drivers/fs/proc/cmdline.rs",
+    "//src/drivers/fs/proc/meminfo.rs",
+    "//src/drivers/fs/proc/stat.rs",
+    "//src/drivers/fs/proc/task/mod.rs",
+    "//src/drivers/fs/proc/task/fd.rs",
+    "//src/drivers/fs/proc/task/task.rs",
+    "//src/drivers/fs/proc/task/task_file.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/fs:vfs" ]
+}
+
+# DevFS (Device Filesystem)
+rust_library("devfs") {
+  crate_name = "zeon_fs_devfs"
+  
+  sources = [
+    "//src/drivers/fs/dev.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/fs:vfs" ]
+}
+
+# SysFS
+rust_library("sysfs") {
+  crate_name = "zeon_fs_sysfs"
+  
+  sources = [
+    "//src/drivers/fs/sys/mod.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/fs:vfs" ]
+}
+
+# Buffer Cache
+rust_library("buffer_cache") {
+  crate_name = "zeon_buffer_cache"
+  
+  sources = [
+    "//libkernel/src/fs/blk/buffer.rs",
+    "//libkernel/src/fs/blk/mod.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}

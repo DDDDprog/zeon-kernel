@@ -1,0 +1,94 @@
+# Zeon Kernel - Complete GN Build System
+
+import("//gn/config/BUILD.gn")
+
+# Main kernel target
+executable("zeon") {
+  output_name = "zeon"
+  
+  # Main entry point
+  sources = [
+    "//src/main.rs",
+  ]
+  
+  # Subsystem dependencies
+  deps = [
+    "//gn/arch/arm64:arm64",
+    "//gn/config:kernel_config",
+    "//gn/platform:qemu",
+    "//gn/drivers",
+    "//gn/fs",
+    "//gn/net",
+    "//libkernel",
+    "//zeon-macros",
+  ]
+  
+  # Configuration
+  config = [
+    ":kernel_config",
+    ":linker_script",
+    ":aarch64_target",
+  ]
+  
+  # Linker script
+  rustflags = [
+    "-C",
+    "link-arg=-Tsrc/arch/arm64/boot/linker.ld",
+    "-C",
+    "link-arg=-Wl,--gc-sections",
+    "-C",
+    "link-arg=-Wl,-e,kernel_main",
+  ]
+}
+
+# User test binary
+executable("usertest") {
+  output_name = "usertest"
+  
+  sources = [
+    "//usertest/src/main.rs",
+    "//usertest/src/fs.rs",
+    "//usertest/src/futex.rs",
+    "//usertest/src/signals.rs",
+    "//usertest/src/socket.rs",
+  ]
+  
+  deps = [
+    "//libkernel",
+    "//gn/config:user_config",
+  ]
+  
+  config = [ ":user_config" ]
+}
+
+# Unit tests
+rust_test("zeon_tests") {
+  test = true
+  
+  sources = [
+    "//src/testing/mod.rs",
+    "//libkernel/src/fs/filesystems/fat32/dir/test/raw_test.rs",
+    "//libkernel/src/memory/proc_vm/memory_map/tests.rs",
+  ]
+  
+  deps = [
+    "//libkernel",
+    "//gn/config:test_config",
+  ]
+  
+  config = [ ":test_config" ]
+}
+
+# All targets
+group("all") {
+  deps = [
+    ":zeon",
+    ":usertest",
+    ":zeon_tests",
+  ]
+}
+
+# Default target
+group("default") {
+  deps = [ ":zeon" ]
+}

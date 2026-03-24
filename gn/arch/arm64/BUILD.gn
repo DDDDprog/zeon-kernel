@@ -1,0 +1,88 @@
+# Architecture-specific build rules for Zeon
+
+# ARM64 Architecture
+group("arm64") {
+  deps = [
+    "//gn/arch/arm64:cpu",
+    "//gn/arch/arm64:memory",
+    "//gn/arch/arm64:exceptions",
+    "//gn/arch/arm64:boot",
+    "//gn/arch/arm64:proc",
+  ]
+}
+
+# CPU Operations
+rust_library("cpu") {
+  crate_name = "zeon_arch_cpu"
+  
+  sources = [
+    "//src/arch/arm64/cpu_ops.rs",
+    "//src/arch/arm64/psci.rs",
+    "//src/arch/arm64/ptrace.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# Memory Management
+rust_library("memory") {
+  crate_name = "zeon_arch_memory"
+  
+  sources = [
+    "//src/arch/arm64/memory/address_space.rs",
+    "//src/arch/arm64/memory/fault.rs",
+    "//src/arch/arm64/memory/fixmap.rs",
+    "//src/arch/arm64/memory/heap.rs",
+    "//src/arch/arm64/memory/mmu.rs",
+    "//src/arch/arm64/memory/tlb.rs",
+    "//src/arch/arm64/memory/uaccess.rs",
+    "//src/arch/arm64/memory/mmu/page_allocator.rs",
+    "//src/arch/arm64/memory/mmu/page_mapper.rs",
+    "//src/arch/arm64/memory/mmu/smalloc_page_allocator.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# Exception Handling
+rust_library("exceptions") {
+  crate_name = "zeon_arch_exceptions"
+  
+  sources = [
+    "//src/arch/arm64/exceptions/mod.rs",
+    "//src/arch/arm64/exceptions/esr.rs",
+    "//src/arch/arm64/exceptions/syscall.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# Boot Code
+rust_library("boot") {
+  crate_name = "zeon_arch_boot"
+  
+  sources = [
+    "//src/arch/arm64/boot/mod.rs",
+    "//src/arch/arm64/boot/exception_level.rs",
+    "//src/arch/arm64/boot/logical_map.rs",
+    "//src/arch/arm64/boot/memory.rs",
+    "//src/arch/arm64/boot/paging_bootstrap.rs",
+    "//src/arch/arm64/boot/secondary.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# Process Management
+rust_library("proc") {
+  crate_name = "zeon_arch_proc"
+  
+  sources = [
+    "//src/arch/arm64/proc.rs",
+    "//src/arch/arm64/proc/idle.rs",
+    "//src/arch/arm64/proc/signal.rs",
+    "//src/arch/arm64/proc/vdso.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}

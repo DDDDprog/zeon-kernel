@@ -1,0 +1,113 @@
+# Zeon Configuration Build Rules
+
+import("//build/config/BUILDCONFIG.gn")
+
+# Kernel Configuration
+config("kernel_config") {
+  # Core kernel defines
+  defines = [
+    "ZEON_KERNEL=1",
+    "ZEON_VERSION=\"0.1.0\"",
+    "TARGET_ARCH=\"aarch64\"",
+    "TARGET_OS=\"none\"",
+  ]
+  
+  # Include paths
+  include_dirs = [
+    "//src",
+    "//libkernel/src",
+  ]
+  
+  # Compilation flags
+  if (is_debug) {
+    defines += [ "DEBUG=1" ]
+    rustflags = [ "-C", "debuginfo=2" ]
+  } else {
+    defines += [ "RELEASE=1" ]
+    rustflags = [ "-C", "opt-level=3", "-C", "lto=true" ]
+  }
+}
+
+# User-mode Configuration
+config("user_config") {
+  defines = [
+    "ZEON_USER=1",
+  ]
+  
+  include_dirs = [
+    "//usertest/src",
+    "//libkernel/src",
+  ]
+}
+
+# Test Configuration
+config("test_config") {
+  defines = [
+    "ZEON_TEST=1",
+  ]
+  
+  rustflags = [ "-C", "unstable-features" ]
+}
+
+# Optimization levels
+config("opt_level_0") {
+  rustflags = [ "-C", "opt-level=0" ]
+}
+
+config("opt_level_1") {
+  rustflags = [ "-C", "opt-level=1" ]
+}
+
+config("opt_level_2") {
+  rustflags = [ "-C", "opt-level=2" ]
+}
+
+config("opt_level_3") {
+  rustflags = [ "-C", "opt-level=3", "-C", "lto=true" ]
+}
+
+# Sanitizers
+config("sanitizer_address") {
+  rustflags = [ "-C", "sanitizer=address" ]
+}
+
+config("sanitizer_memory") {
+  rustflags = [ "-C", "sanitizer=memory" ]
+}
+
+# Linker script
+config("linker_script") {
+  rustflags = [
+    "-C",
+    "link-arg=-Tsrc/arch/arm64/boot/linker.ld",
+  ]
+}
+
+# Target-specific settings
+config("aarch64_target") {
+  rustflags = [
+    "-C",
+    "target=aarch64-unknown-none-softfloat",
+  ]
+  
+  defines = [
+    "ARCH_AARCH64=1",
+    "TARGET_CPU=\"cortex-a57\"",
+  ]
+}
+
+# Feature flags
+declare_args() {
+  # Enable features
+  enable_virtio = true
+  enable_networking = true
+  enable_filesystems = true
+  enable_usb = true
+  enable_gpu = true
+  enable_audio = true
+  
+  # Debug features
+  enable_debug_prints = is_debug
+  enable_kernel_log = is_debug
+  enable_tracepoints = false
+}

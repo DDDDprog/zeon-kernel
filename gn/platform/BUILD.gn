@@ -1,0 +1,71 @@
+# Platform-specific build rules for Zeon
+
+# QEMU Platform
+group("qemu") {
+  deps = [
+    "//gn/platform:virtio",
+    "//gn/platform:qemu_board",
+  ]
+}
+
+# Raspberry Pi Platform
+group("rpi") {
+  deps = [
+    "//gn/platform:rpi_hw",
+  ]
+}
+
+# VirtIO Platform
+group("virtio") {
+  deps = [
+    "//gn/drivers/block:virtio_blk",
+    "//gn/drivers/net:virtio_net",
+    "//gn/drivers/video:virtio_gpu",
+  ]
+}
+
+# QEMU Virtual Board
+rust_library("qemu_board") {
+  crate_name = "zeon_platform_qemu"
+  
+  sources = [
+    "//src/drivers/display/virtio.rs",
+    "//src/drivers/virtio_hal.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# Raspberry Pi Hardware
+rust_library("rpi_hw") {
+  crate_name = "zeon_platform_rpi"
+  
+  sources = [
+    "//src/drivers/uart/bcm2835_aux.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# VirtIO Hardware Abstraction
+rust_library("virtio") {
+  crate_name = "zeon_platform_virtio"
+  
+  sources = [
+    "//src/drivers/virtio_hal.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# Device Tree
+rust_library("fdt") {
+  crate_name = "zeon_fdt"
+  
+  sources = [
+    "//src/arch/arm64/fdt.rs",
+    "//src/drivers/fdt_prober.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}

@@ -1,0 +1,64 @@
+# Networking build rules for Zeon
+
+# All networking
+group("net") {
+  deps = [
+    "//gn/net:core",
+    "//gn/net:tcp_ip",
+    "//gn/net:unix_sockets",
+    "//gn/net:virtio_net",
+  ]
+}
+
+# Network Core
+rust_library("core") {
+  crate_name = "zeon_net_core"
+  
+  sources = [
+    "//src/net/mod.rs",
+    "//src/net/sops.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# TCP/IP Stack
+rust_library("tcp_ip") {
+  crate_name = "zeon_tcp_ip"
+  
+  sources = [
+    "//src/net/tcp.rs",
+    "//src/net/syscalls/accept.rs",
+    "//src/net/syscalls/bind.rs",
+    "//src/net/syscalls/connect.rs",
+    "//src/net/syscalls/listen.rs",
+    "//src/net/syscalls/recv.rs",
+    "//src/net/syscalls/send.rs",
+    "//src/net/syscalls/shutdown.rs",
+    "//src/net/syscalls/socket.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/net:core" ]
+}
+
+# Unix Sockets
+rust_library("unix_sockets") {
+  crate_name = "zeon_unix_sockets"
+  
+  sources = [
+    "//src/net/unix.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/net:core" ]
+}
+
+# VirtIO Networking
+rust_library("virtio_net") {
+  crate_name = "zeon_net_virtio"
+  
+  sources = [
+    "//src/drivers/net/virtio/mod.rs",
+  ]
+  
+  deps = [ "//libkernel", "//gn/net:core", "//gn/drivers" ]
+}

@@ -1,0 +1,138 @@
+# Driver build rules for Zeon
+
+# All drivers
+group("drivers") {
+  deps = [
+    "//gn/drivers:core",
+    "//gn/drivers/block",
+    "//gn/drivers/char",
+    "//gn/drivers/net",
+    "//gn/drivers/video",
+    "//gn/drivers/audio",
+    "//gn/drivers/usb",
+    "//gn/drivers/i2c",
+    "//gn/drivers/spi",
+  ]
+}
+
+# Driver core
+rust_library("core") {
+  crate_name = "zeon_driver_core"
+  
+  sources = [
+    "//src/drivers/mod.rs",
+    "//src/drivers/init.rs",
+    "//src/drivers/probe/mod.rs",
+    "//src/drivers/fdt_prober.rs",
+  ]
+  
+  deps = [ "//libkernel" ]
+}
+
+# Block drivers
+group("block") {
+  deps = [
+    "//gn/drivers/block:ramdisk",
+    "//gn/drivers/block:virtio_blk",
+    "//gn/drivers/block:nvme",
+  ]
+}
+
+rust_library("ramdisk") {
+  crate_name = "zeon_driver_ramdisk"
+  sources = [ "//libkernel/src/fs/blk/ramdisk.rs" ]
+  deps = [ "//libkernel" ]
+}
+
+rust_library("virtio_blk") {
+  crate_name = "zeon_driver_virtio_blk"
+  sources = [ "//src/drivers/display/virtio.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
+
+rust_library("nvme") {
+  crate_name = "zeon_driver_nvme"
+  sources = [ "//src/drivers/block/nvme/mod.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
+
+# Character drivers
+group("char") {
+  deps = [
+    "//gn/drivers/char:null",
+    "//gn/drivers/char:zero",
+    "//gn/drivers/char:random",
+  ]
+}
+
+rust_library("null") {
+  crate_name = "zeon_driver_null"
+  sources = [ "//src/drivers/chrdev/null.rs" ]
+  deps = [ "//libkernel" ]
+}
+
+rust_library("zero") {
+  crate_name = "zeon_driver_zero"
+  sources = [ "//src/drivers/chrdev/zero.rs" ]
+  deps = [ "//libkernel" ]
+}
+
+rust_library("random") {
+  crate_name = "zeon_driver_random"
+  sources = [ "//src/drivers/chrdev/random.rs" ]
+  deps = [ "//libkernel" ]
+}
+
+# Network drivers
+group("net") {
+  deps = [
+    "//gn/drivers/net:virtio_net",
+  ]
+}
+
+rust_library("virtio_net") {
+  crate_name = "zeon_driver_virtio_net"
+  sources = [ "//src/drivers/net/virtio/mod.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
+
+# Video/Display drivers
+group("video") {
+  deps = [
+    "//gn/drivers/video:virtio_gpu",
+  ]
+}
+
+rust_library("virtio_gpu") {
+  crate_name = "zeon_driver_virtio_gpu"
+  sources = [ "//src/drivers/video/virtio_gpu.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
+
+# Audio drivers
+rust_library("audio") {
+  crate_name = "zeon_driver_audio"
+  sources = [ "//src/drivers/audio/mod.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
+
+# USB drivers
+rust_library("usb") {
+  crate_name = "zeon_driver_usb"
+  sources = [ "//src/drivers/usb/mod.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
+
+# I2C drivers
+rust_library("i2c") {
+  crate_name = "zeon_driver_i2c"
+  sources = [ "//src/drivers/i2c/mod.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
+
+# SPI drivers
+rust_library("spi") {
+  crate_name = "zeon_driver_spi"
+  sources = [ "//src/drivers/spi/mod.rs" ]
+  deps = [ "//libkernel", "//gn/drivers/core" ]
+}
