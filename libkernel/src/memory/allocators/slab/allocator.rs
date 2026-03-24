@@ -10,46 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Slab manager for a specific size class.
-///
-/// Manages a collection of slabs for a particular object size (size class). Two
-/// main linked lists are managed: a 'free' list and a 'partial' list.
-///
-/// - The 'partial' list is a collection of slabs which are partially full. We
-///   allocate from this list first for new allocations.
-/// - The 'free' list is a collection of slabs which have no objects allocated
-///   from them yet. We cache them in the hope that they will be used later on,
-///   without the need to lock the FrameAllocator (FA) to get more physical
-///   memory. When a particular size is reached (`MAX_FREE_SLABS`), we batch free
-///   half of the slabs back to the FA.
-///
-/// # Full Slabs
-///
-/// There is no 'full' list. Full slabs are unlinked from both the 'partial' and
-/// 'free' lists. They are allowed to float "in the ether" (referenced only by
-/// the global [FrameList]). When freeing an object from a 'full' slab, the
-/// allocator detects the state transition and re-links the frame into the
-/// 'partial'/'free' list.
-///
-/// # Safety and Ownership
-///
-/// The FA and the `SlabManager` share a list of frame metadata via [FrameList]. To
-/// share this list safely, we implement an implicit ownership model:
-///
-/// 1. When the FA allocates a frame, it initializes the metadata.
-/// 2. We convert this frame into a slab allocation via
-///    [PageAllocation::as_slab].
-/// 3. Once that function returns, this `SlabManager` is considered the
-///    exclusive owner of that frame's metadata.
-///
-/// It is therefore safe for the `SlabManager` to obtain a mutable reference to
-/// the metadata of any frame in its possession, as the `SpinLock` protecting
-/// this struct guarantees exclusive access to the specific size class that
-/// "owns" the frame. Ownership is eventually returned to the FA via
-/// [FrameAllocatorInner::free_slab].
 pub struct SlabManager<CPU: CpuOps, A: PageAllocGetter<CPU>, T: AddressTranslator<()>> {
     pub(super) free: LinkedList<FrameAdapter>,
     pub(super) partial: LinkedList<FrameAdapter>,

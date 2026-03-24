@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct BiosParameterBlock {
     _jump: [u8; 3],
     _oem_id: [u8; 8],

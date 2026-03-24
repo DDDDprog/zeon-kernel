@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct WakerSet<T = ()> {
     waiters: BTreeMap<u64, (Waker, T)>,
     next_id: u64,

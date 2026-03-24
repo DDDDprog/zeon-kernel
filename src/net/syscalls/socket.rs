@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub const CLOSE_ON_EXEC: i32 = 0x80000;
 pub const NONBLOCK: i32 = 0x800;
 

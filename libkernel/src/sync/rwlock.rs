@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 struct RwlockState<CPU: CpuOps> {
     num_readers: SpinLockIrq<usize, CPU>,
     writer_lock: Mutex<(), CPU>,

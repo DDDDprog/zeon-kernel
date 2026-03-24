@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct OldUtsname {
     sysname: [c_char; 65],
     nodename: [c_char; 65],

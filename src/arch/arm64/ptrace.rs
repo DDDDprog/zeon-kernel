@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct Arm64PtraceGPRegs {
     pub x: [u64; 31], // x0-x30
     pub sp: u64,

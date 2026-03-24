@@ -10,13 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A stateful, peekable iterator for reading directory entries.
-///
-/// This struct holds a lock on the `OpenFileInner` for its entire lifetime,
-/// ensuring that directory reading is a serialized.
 pub struct OpenFileDirIter<'a> {
     file_state: &'a mut FileCtx,
     stream: Box<dyn DirStream>,

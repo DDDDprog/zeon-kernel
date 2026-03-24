@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// SPI Bus
 pub struct SpiBus {
     pub base_addr: usize,
     pub clock_hz: u32,

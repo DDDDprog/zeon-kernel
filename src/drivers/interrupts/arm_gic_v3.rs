@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 fn get_icc_iar1_el1() -> u64 {
     let iar: u64;
     unsafe { asm!("mrs {}, ICC_IAR1_EL1", out(reg) iar, options(nostack, nomem)) };

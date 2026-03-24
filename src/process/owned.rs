@@ -10,11 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Task state which is exclusively owned by this CPU/runqueue, it is not shared
-/// between other tasks and can therefore be access lock-free.
 pub struct OwnedTask {
     pub ctx: Context,
     pub priority: Option<i8>,

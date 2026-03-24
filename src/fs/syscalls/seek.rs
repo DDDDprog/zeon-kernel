@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub async fn sys_lseek(ctx: &ProcessCtx, fd: Fd, offset: isize, whence: i32) -> Result<usize> {
     let seek_from = match whence {
         SEEK_SET => SeekFrom::Start(offset as _),

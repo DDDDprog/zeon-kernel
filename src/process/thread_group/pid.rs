@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Userspace `pid_t` type.
 pub type PidT = i32;
 
 pub fn sys_getpid(ctx: &ProcessCtx) -> core::result::Result<usize, Infallible> {

@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct UserspaceSigAction {
     pub action: TUA<extern "C" fn(i32)>,
     pub restorer: Option<TUA<extern "C" fn()>>,

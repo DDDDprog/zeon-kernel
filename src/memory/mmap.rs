@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 fn prot_to_perms(prot: u64) -> VMAPermissions {
     VMAPermissions {
         read: (prot & PROT_READ) != 0,

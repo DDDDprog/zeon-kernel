@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 fn register_handler(signum: libc::c_int, restart: bool) {
     unsafe {
         SIGNAL_CAUGHT.store(false, Ordering::Relaxed);

@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub enum FutexKey {
     Private { pid: u32, addr: usize },
     Shared { frame: usize, offset: usize },

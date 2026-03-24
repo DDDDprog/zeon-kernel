@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub const VDSO_BASE: VA = VA::from_value(0xffff_8100_0000_0000);
 
 unsafe extern "C" {

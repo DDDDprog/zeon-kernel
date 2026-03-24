@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-// Implementation for L3 (Leaf Table)
 impl RecursiveTeardownWalker for L3Table {
     fn tear_down<F, PM>(
         table_pa: TPA<PgTableArray<Self>>,

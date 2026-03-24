@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub async fn sys_mincore(ctx: &ProcessCtx, start: u64, len: usize, vec: UA) -> Result<usize> {
     // addr must be a multiple of the system page size
     // len must be > 0

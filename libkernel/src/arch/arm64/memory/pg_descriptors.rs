@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Trait for common behavior across different types of page table entries.
 pub trait PageTableEntry: Sized + Copy + Clone {
     /// Returns `true` if the entry is valid (i.e., not an Invalid/Fault entry).
     fn is_valid(self) -> bool;

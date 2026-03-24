@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub extern "C" fn transition_to_el1(stack_addr: u64) {
     let ret_address = {
         let mut addr: u64;

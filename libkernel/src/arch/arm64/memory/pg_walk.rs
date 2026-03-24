@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A collection of context required to modify page tables.
 pub struct WalkContext<'a, PM>
 where
     PM: PageTableMapper + 'a,

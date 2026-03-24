@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 struct SecondaryBootInfo {
     boot_stack_addr: PA,
     kstack_addr: VA,

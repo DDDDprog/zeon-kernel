@@ -10,12 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-//! Zeon Advanced Procedural Macros
-//! High-performance macro library for Zeon kernel development
-
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, ItemFn, ItemStruct, Fields, AttributeArgs, NestedMeta, Meta};

@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub fn test_tcp_socket_creation() {
     unsafe {
         let sockfd = socket(AF_INET, SOCK_STREAM, 0);

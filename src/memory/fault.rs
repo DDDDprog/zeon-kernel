@@ -10,14 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Represents the outcome of a page fault handling attempt.
-///
-/// This enum is the return type of `handle_demand_fault` and
-/// `handle_protection_fault` and communicates to the caller (the exception
-/// handler) how the fault was handled and what action to take next.
 pub enum FaultResolution {
     /// The page fault was handled successfully and synchronously. The necessary
     /// page has been allocated and mapped. Or, in the case of CoW, the page has

@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub mod futex;
 
 pub fn sys_set_tid_address(ctx: &mut ProcessCtx, tidptr: TUA<u32>) -> Result<usize> {

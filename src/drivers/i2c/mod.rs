@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// I2C Bus
 pub struct I2cBus {
     pub base_addr: usize,
     pub clock_speed: u32,

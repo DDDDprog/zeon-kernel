@@ -10,14 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// unlinkat(2) implementation.
-///
-/// The semantics are:
-/// - If `flags & AT_REMOVEDIR` is set, behave like `rmdir`.
-/// - Otherwise behave like `unlink`.
 pub async fn sys_unlinkat(
     ctx: &ProcessCtx,
     dirfd: Fd,

@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A hardware or software source of entropy that the pool can query.
 pub trait EntropySource: Send + Sync {
     /// Pull up to `buf.len()` bytes of entropy from this source.
     /// Returns `(bytes_written, approx_entropy_bits)`.

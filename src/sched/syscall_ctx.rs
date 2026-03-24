@@ -10,16 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Provides access to the current task's state.
-///
-/// Any function that is marked with `ProcessCtx` should only be callable from a
-/// context which is backed-by a userspace context. As such, they should take a
-/// `ProcessCtx` as an argument to enforce this requirement. A new `ProcessCtx`
-/// is created by the arch layer following entry into the kernel from a process
-/// context and it is passed to relevent functions.
 pub struct ProcessCtx {
     task: *mut OwnedTask,
 }

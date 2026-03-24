@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// GPU Device
 pub struct GpuDevice {
     pub name: String,
     pub base_addr: usize,

@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A trait for an object that can receive input bytes from a console driver.
 pub trait TtyInputHandler: Send + Sync {
     /// Pushes a single byte of input into the TTY layer. This is typically
     /// called from a driver's interrupt handler.

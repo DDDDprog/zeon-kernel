@@ -10,14 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Process a set of progream headers from an ELF. Create VMAs for all `PT_LOAD`
-/// segments, optionally applying `bias` to the load address.
-///
-/// If a VMA was found that contains the headers themselves, the address of the
-/// *VMA* is returned.
 fn process_prog_headers<E: Endian>(
     hdrs: &[ProgramHeader64<E>],
     vmas: &mut Vec<VMArea>,

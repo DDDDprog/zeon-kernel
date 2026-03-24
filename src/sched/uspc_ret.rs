@@ -10,14 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Try to transition the current task from Running to PendingSleep atomically.
-///
-/// Returns `true` if the task should go to sleep (state set to PendingSleep or
-/// task is Finished). Returns `false` if the task was woken concurrently
-/// and should re-process its kernel work instead.
 fn try_sleep_current() -> bool {
     current_work().state.try_pending_sleep()
 }

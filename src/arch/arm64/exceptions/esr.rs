@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct Ifsc(pub u8);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 impl Bcm2835AuxRegBank {
     pub fn new(addr: VA) -> &'static mut Self {
         unsafe { &mut *(addr.as_ptr_mut() as *mut Self) }

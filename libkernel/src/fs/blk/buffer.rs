@@ -10,16 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A buffer that provides byte-level access to an underlying BlockDevice.
-///
-/// This layer handles the logic of translating byte offsets and lengths into
-/// block-based operations, including handling requests that span multiple
-/// blocks or are not aligned to block boundaries.
-///
-/// TODO: Cache blocks.
 pub struct BlockBuffer {
     dev: Box<dyn BlockDevice>,
     block_size: usize,

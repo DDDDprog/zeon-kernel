@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub trait Arch: CpuOps + VirtualMemory {
     /// The type representing the state saved to the stack on an exception or
     /// context switch. The kernel's scheduler and exception handlers will work

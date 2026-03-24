@@ -10,12 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Marker trait for kinds of memory addresses (virtual or physical).
-///
-/// Implemented only for `Virtual` and `Physical`.
 pub trait MemKind: sealed::Sealed + Ord + Clone + Copy + PartialEq + Eq {}
 
 /// Marker for virtual memory address type.

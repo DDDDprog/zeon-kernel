@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-//pub mod bcm2835_aux;
 pub mod imx_lp;
 pub mod pl011;
 

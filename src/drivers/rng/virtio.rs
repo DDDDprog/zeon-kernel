@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct VirtioRngDriver {
     rng: SpinLock<VirtIORng<VirtioHal, MmioTransport<'static>>>,
 }

@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub fn do_exit_group(task: &Arc<Task>, exit_code: ChildState) {
     let process = Arc::clone(&task.process);
 

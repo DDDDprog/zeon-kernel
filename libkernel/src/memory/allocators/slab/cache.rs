@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct PtrCache {
     next_free: usize,
     ptrs: [*mut u8; PTRS_PER_SZ_CLASS],

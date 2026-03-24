@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub const SIG_BLOCK: u32 = 0;
 pub const SIG_UNBLOCK: u32 = 1;
 pub const SIG_SETMASK: u32 = 2;

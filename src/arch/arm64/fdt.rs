@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub const MAX_FDT_SZ: usize = 2 * 1024 * 1024;
 
 pub fn get_cmdline() -> Option<String> {

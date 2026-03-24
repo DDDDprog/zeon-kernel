@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub trait SocketOps: Send + Sync {
     async fn bind(&self, _addr: SockAddr) -> libkernel::error::Result<()> {
         Err(KernelError::NotSupported)

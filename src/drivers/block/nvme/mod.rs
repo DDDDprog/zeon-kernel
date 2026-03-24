@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// NVMe Controller
 pub struct NvmeController {
     pub base_addr: usize,
     pub queue_depth: u16,

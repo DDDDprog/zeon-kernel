@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub trait FileOps: Send + Sync {
     /// Reads data from the current file position into `buf`.
     /// The file's cursor is advanced by the number of bytes read.

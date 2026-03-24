@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 fn arch_init_stage1(
     dtb_ptr: TPA<u8>,
     image_start: PA,

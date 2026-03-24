@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub const DESCRIPTORS_PER_PAGE: usize = PAGE_SIZE / core::mem::size_of::<u64>();
 pub const LEVEL_MASK: usize = DESCRIPTORS_PER_PAGE - 1;
 

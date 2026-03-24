@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 struct KBufInner<T, S: Storage<Item = T>> {
     buf: SharedRb<S>,
     read_waiters: WakerSet,

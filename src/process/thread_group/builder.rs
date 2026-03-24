@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A builder for creating ThreadGroup instances.
 pub struct ThreadGroupBuilder {
     tgid: Tgid,
     parent: Option<Arc<ThreadGroup>>,

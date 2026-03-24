@@ -10,13 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A cell which can be written to only once.
-///
-/// This is a kernel-safe, no_std equivalent of std::sync::OnceLock, built on
-/// top of a SpinLock.
 pub struct OnceLock<T, CPU: CpuOps> {
     inner: SpinLockIrq<Option<T>, CPU>,
 }

@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// A wrapper for a RefCell guard (G) that restores interrupts on drop.
 pub struct IrqGuard<G, CPU: CpuOps> {
     guard: ManuallyDrop<G>,
     flags: usize,

@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub struct Fat32FileNode<T: Fat32Operations> {
     reader: Fat32Reader<T>,
     attr: FileAttr,

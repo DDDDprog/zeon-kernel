@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Audio Controller
 pub struct AudioController {
     pub base_addr: usize,
     pub sample_rate: u32,

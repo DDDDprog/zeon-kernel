@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub async fn sys_getcwd(ctx: &ProcessCtx, buf: UA, len: usize) -> Result<usize> {
     let task = ctx.shared().clone();
     let path = task.cwd.lock_save_irq().1.as_str().to_string();

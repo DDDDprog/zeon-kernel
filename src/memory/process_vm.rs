@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 pub async fn sys_process_vm_readv(
     pid: PidT,
     local_iov: TUA<IoVec>,

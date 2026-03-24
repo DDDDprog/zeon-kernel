@@ -10,24 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-/// Handles the `brk` system call.
-///
-/// This function emulates the behavior of the Linux `brk` syscall.
-///
-/// # Arguments
-/// * `addr`: The virtual address for the new program break.
-///
-/// # Returns
-/// A `Result` containing the new program break address as a `usize`. Note that
-/// according to the `brk(2)` man page, the syscall itself doesn't "fail" in the
-/// traditional sense. It always returns a memory address, hence the Infallible
-/// error type.
-/// - If `addr` is 0, it returns the current break.
-/// - On a successful resize, it returns the new break.
-/// - On a failed resize, it returns the current, unchanged break.
 pub async fn sys_brk(ctx: &ProcessCtx, addr: VA) -> Result<usize, Infallible> {
     let mut vm = ctx.shared().vm.lock_save_irq();
 

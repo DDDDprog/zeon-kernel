@@ -10,9 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
 impl FrameAllocatorInner {
     pub(super) fn free_slab(&mut self, frame: UnsafeRef<Frame>) {
         assert!(matches!(frame.state, FrameState::Slab(_)));

@@ -10,10 +10,6 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-// Zeon - Pure Rust Operating System
-// https://github.com/DDDDprog/zeon-kernel
-
-// Return a duration from the epoch.
 pub fn date() -> Duration {
     let epoch_info = *EPOCH_DURATION.lock_save_irq();
 
