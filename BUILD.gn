@@ -1,0 +1,86 @@
+# Zeon GN Build Definition
+# Pure Rust Operating System for ARM64
+
+import("//libkernel/libkernel.gn")
+import("//zeon-macros/zeon-macros.gn")
+
+config("zeon_config") {
+  include_dirs = [
+    "//src",
+    "//libkernel/src",
+  ]
+  
+  defines = [
+    "ZEON_KERNEL=1",
+    "TARGET_ARCH=\"aarch64\"",
+  ]
+  
+  if (is_debug) {
+    defines += [ "DEBUG=1" ]
+  }
+}
+
+# Kernel binary
+executable("zeon") {
+  output_name = "zeon"
+  
+  sources = [
+    "//src/main.rs",
+    "//src/arch/mod.rs",
+    "//src/arch/arm64/mod.rs",
+    "//src/clock/mod.rs",
+    "//src/console/mod.rs",
+    "//src/drivers/mod.rs",
+    "//src/fs/mod.rs",
+    "//src/interrupts/mod.rs",
+    "//src/kernel/mod.rs",
+    "//src/memory/mod.rs",
+    "//src/net/mod.rs",
+    "//src/process/mod.rs",
+    "//src/sched/mod.rs",
+    "//src/sync/mod.rs",
+  ]
+  
+  deps = [
+    ":libkernel",
+    ":zeon-macros",
+  ]
+  
+  config = ":zeon_config"
+  
+  rustflags = [
+    "-C",
+    "link-arg=-Tsrc/arch/arm64/boot/linker.ld",
+    "-C",
+    "target=aarch64-unknown-none-softfloat",
+  ]
+}
+
+# Tests
+rust_test("zeon_tests") {
+  test = true
+  
+  deps = [
+    ":libkernel",
+  ]
+}
+
+# User tests
+executable("usertest") {
+  output_name = "usertest"
+  
+  sources = [
+    "//usertest/src/main.rs",
+  ]
+  
+  deps = [
+    ":libkernel",
+  ]
+}
+
+# Install targets
+group("default") {
+  deps = [
+    ":zeon",
+  ]
+}

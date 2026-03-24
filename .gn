@@ -1,0 +1,15 @@
+# GN build configuration for Zeon
+buildconfig = "//build/config/BUILDCONFIG.gn"
+
+# Default args
+default_args = {
+    is_debug = true
+    is_component_build = false
+    use_custom_libcxx = true
+    target_os = "none"
+    target_arch = "aarch64"
+    rustc_target = "aarch64-unknown-none-softfloat"
+}
+
+# Check GN version
+check_system_includes = false

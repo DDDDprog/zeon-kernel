@@ -1,0 +1,75 @@
+# libkernel GN Build Definition
+# Architecture-agnostic library for Zeon
+
+config("libkernel_config") {
+  include_dirs = [
+    "//libkernel/src",
+  ]
+  
+  defines = [
+    "LIBKERNEL=1",
+  ]
+}
+
+rust_library("libkernel") {
+  crate_name = "libkernel"
+  
+  sources = [
+    "//libkernel/src/lib.rs",
+    "//libkernel/src/arch/mod.rs",
+    "//libkernel/src/arch/arm64/mod.rs",
+    "//libkernel/src/driver.rs",
+    "//libkernel/src/error.rs",
+    "//libkernel/src/error/syscall_error.rs",
+    "//libkernel/src/memory/address.rs",
+    "//libkernel/src/memory/allocators/frame.rs",
+    "//libkernel/src/memory/allocators/mod.rs",
+    "//libkernel/src/memory/allocators/phys.rs",
+    "//libkernel/src/memory/allocators/slab/allocator.rs",
+    "//libkernel/src/memory/allocators/slab/cache.rs",
+    "//libkernel/src/memory/allocators/slab/heap.rs",
+    "//libkernel/src/memory/allocators/slab/mod.rs",
+    "//libkernel/src/memory/allocators/slab/slab.rs",
+    "//libkernel/src/memory/allocators/smalloc.rs",
+    "//libkernel/src/memory/kbuf.rs",
+    "//libkernel/src/memory/mod.rs",
+    "//libkernel/src/memory/page.rs",
+    "//libkernel/src/memory/permissions.rs",
+    "//libkernel/src/memory/pg_offset.rs",
+    "//libkernel/src/memory/proc_vm/mod.rs",
+    "//libkernel/src/memory/proc_vm/vmarea.rs",
+    "//libkernel/src/memory/proc_vm/memory_map/mod.rs",
+    "//libkernel/src/memory/region.rs",
+    "//libkernel/src/pod.rs",
+    "//libkernel/src/proc/caps.rs",
+    "//libkernel/src/proc/ids.rs",
+    "//libkernel/src/proc/mod.rs",
+    "//libkernel/src/sync/condvar.rs",
+    "//libkernel/src/sync/mod.rs",
+    "//libkernel/src/sync/mpsc.rs",
+    "//libkernel/src/sync/mutex.rs",
+    "//libkernel/src/sync/once_lock.rs",
+    "//libkernel/src/sync/per_cpu.rs",
+    "//libkernel/src/sync/rwlock.rs",
+    "//libkernel/src/sync/spinlock.rs",
+    "//libkernel/src/sync/waker_set.rs",
+    "//libkernel/src/fs/attr.rs",
+    "//libkernel/src/fs/blk/buffer.rs",
+    "//libkernel/src/fs/blk/mod.rs",
+    "//libkernel/src/fs/blk/ramdisk.rs",
+    "//libkernel/src/fs/filesystems/ext4/mod.rs",
+    "//libkernel/src/fs/filesystems/fat32/bpb.rs",
+    "//libkernel/src/fs/filesystems/fat32/dir.rs",
+    "//libkernel/src/fs/filesystems/fat32/fat.rs",
+    "//libkernel/src/fs/filesystems/fat32/file.rs",
+    "//libkernel/src/fs/filesystems/fat32/mod.rs",
+    "//libkernel/src/fs/filesystems/fat32/reader.rs",
+    "//libkernel/src/fs/filesystems/mod.rs",
+    "//libkernel/src/fs/filesystems/tmpfs.rs",
+    "//libkernel/src/fs/mod.rs",
+    "//libkernel/src/fs/path.rs",
+    "//libkernel/src/fs/pathbuf.rs",
+  ]
+  
+  config = ":libkernel_config"
+}

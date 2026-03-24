@@ -1,0 +1,10 @@
+# zeon-macros GN Build Definition
+# Procedural macros for Zeon
+
+rust_proc_macro("zeon-macros") {
+  crate_name = "zeon-macros"
+  
+  sources = [
+    "//zeon-macros/src/lib.rs",
+  ]
+}
