@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct UserSigAltStack {
     ss_sp: UA,
     ss_flags: SigAltStackFlags,

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub mod builder;
 pub mod pid;
 pub mod rsrc_lim;

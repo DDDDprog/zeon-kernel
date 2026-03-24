@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub enum RlimitId {
     CPU = 0,
     FSIZE = 1,

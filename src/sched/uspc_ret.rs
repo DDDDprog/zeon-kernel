@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Try to transition the current task from Running to PendingSleep atomically.
 ///
 /// Returns `true` if the task should go to sleep (state set to PendingSleep or

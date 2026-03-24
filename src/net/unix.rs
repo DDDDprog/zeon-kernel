@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Registry mapping Unix socket path bytes to endpoint inbox and listening state
 struct Endpoint {
     inbox: Arc<KPipe>,

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct PageBackedStorage<T>(ClaimedPage, PhantomData<T>);
 
 const USER_COPY_CHUNK_SIZE: usize = 0x100;

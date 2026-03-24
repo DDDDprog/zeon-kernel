@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 mod runqueue;
 pub mod sched_task;
 pub mod syscall_ctx;

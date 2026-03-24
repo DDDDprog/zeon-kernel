@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// USB Host Controller
 pub struct UsbController {
     pub base_addr: usize,

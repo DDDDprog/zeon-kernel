@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Process a set of progream headers from an ELF. Create VMAs for all `PT_LOAD`
 /// segments, optionally applying `bias` to the load address.
 ///

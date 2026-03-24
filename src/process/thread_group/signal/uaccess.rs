@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct UserSigId(u32);
 
 impl TryFrom<UserSigId> for SigId {

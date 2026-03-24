@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct FdSet {
     set: [u64; SET_SIZE / (8 * core::mem::size_of::<u64>())],
 }

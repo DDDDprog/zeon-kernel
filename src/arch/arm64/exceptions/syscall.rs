@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub async fn handle_syscall(mut ctx: ProcessCtx) {
     ctx.task_mut().update_accounting(None);
     ctx.task_mut().in_syscall = true;

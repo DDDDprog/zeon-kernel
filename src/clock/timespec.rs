@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct TimeSpec {
     pub tv_sec: i64,
     pub tv_nsec: u64,

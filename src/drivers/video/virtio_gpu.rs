@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// VirtIO GPU device instance
 pub struct VirtioGpu {
     pub base_addr: usize,

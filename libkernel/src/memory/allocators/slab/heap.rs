@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub trait SlabGetter<CPU: CpuOps, A: PageAllocGetter<CPU>, T: AddressTranslator<()>> {
     fn global_slab_alloc() -> &'static SlabAllocator<CPU, A, T>;
 }

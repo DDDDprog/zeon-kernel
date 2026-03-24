@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub async fn sys_symlinkat(
     ctx: &ProcessCtx,
     old_name: TUA<c_char>,

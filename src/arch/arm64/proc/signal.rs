@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 struct RtSigFrame {
     uctx: ExceptionState,
     alt_stack_prev_addr: UA,

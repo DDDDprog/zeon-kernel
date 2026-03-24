@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 struct Imx8UlpLp {
     regs: &'static mut LpuartRegBank,
 }

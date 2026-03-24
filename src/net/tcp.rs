@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct TcpSocket {
     handle: SocketHandle,
     local_endpoint: SpinLock<Option<IpEndpoint>>,

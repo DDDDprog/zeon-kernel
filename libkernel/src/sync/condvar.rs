@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// The type of wakeup that should occur after a state update.
 pub enum WakeupType {
     None,

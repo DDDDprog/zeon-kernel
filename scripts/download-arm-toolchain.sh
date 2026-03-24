@@ -1,3 +1,6 @@
+# Zeon - Pure Rust Operating System
+# https://github.com/DDDDprog/zeon-kernel
+
 # Zeon - Zeon
 #!/bin/bash
 # First and only argument: where to download the toolchain file

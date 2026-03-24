@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Marker trait for kinds of memory addresses (virtual or physical).
 ///
 /// Implemented only for `Virtual` and `Physical`.

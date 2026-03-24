@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub mod cstr;
 
 /// A marker trait for types that are safe to copy to or from userspace.

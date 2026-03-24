@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub async fn sys_clock_gettime(
     ctx: &ProcessCtx,
     clockid: i32,

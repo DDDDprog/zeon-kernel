@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
    _/ ___| 
  * | |_) | |_) |  / _ \ \___ \ | | \___ \ 
  * |  __/|  _ <  / ___ \ ___) || |  ___) |

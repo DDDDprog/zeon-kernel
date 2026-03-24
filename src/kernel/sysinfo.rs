@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct SysInfo {
     /// Seconds since boot
     pub uptime: u64,

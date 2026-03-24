@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 const KERNEL_STACK_SHIFT: usize = 15; // 32KiB.
 const KERNEL_STACK_SZ: usize = 1 << KERNEL_STACK_SHIFT;
 pub const KERNEL_STACK_PG_ORDER: usize = (KERNEL_STACK_SZ / PAGE_SIZE).ilog2() as usize;

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// A buffer that provides byte-level access to an underlying BlockDevice.
 ///
 /// This layer handles the logic of translating byte offsets and lengths into

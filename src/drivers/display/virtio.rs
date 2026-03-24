@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// A system display backed by VirtIO-GPU in framebuffer mode.
 pub struct VirtioGpuDisplay<T: Transport + Send> {
     fdt_name: Option<&'static str>,

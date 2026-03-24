@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Handles the `brk` system call.
 ///
 /// This function emulates the behavior of the Linux `brk` syscall.

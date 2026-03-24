@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Manages mappings in a process's address space.
 pub struct MemoryMap<AS: UserAddressSpace> {
     pub(super) vmas: BTreeMap<VA, VMArea>,

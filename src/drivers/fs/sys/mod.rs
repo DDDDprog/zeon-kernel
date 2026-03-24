@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Deterministically generates an inode ID for the given path segments within the sysfs filesystem.
 fn get_inode_id(path_segments: &[&str]) -> u64 {
     let mut hasher = rustc_hash::FxHasher::default();

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 // Wrapper for the Ineligible Heap (Min-Heap ordered by v_eligible)
 struct ByEligible(RunnableTask);
 

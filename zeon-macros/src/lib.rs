@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 //! Zeon Advanced Procedural Macros
 //! High-performance macro library for Zeon kernel development
 

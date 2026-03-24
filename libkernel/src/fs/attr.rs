@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 impl From<FileMode> for FilePermissions {
     fn from(mode: FileMode) -> Self {
         FilePermissions::from_bits_truncate(mode.bits())

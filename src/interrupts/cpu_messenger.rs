@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub enum Message {
     EnqueueWork(Arc<Work>),
     #[expect(unused)]

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Represents the outcome of a page fault handling attempt.
 ///
 /// This enum is the return type of `handle_demand_fault` and

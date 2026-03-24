@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct Stat {
     pub st_dev: u64,        // Device
     pub st_ino: u64,        // File serial number

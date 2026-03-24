@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct AllocatedInfo {
     /// Current ref count of the allocated block.
     pub ref_count: u32,

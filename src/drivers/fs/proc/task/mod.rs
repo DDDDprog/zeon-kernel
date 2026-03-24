@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct ProcTaskInode {
     id: InodeId,
     attr: FileAttr,

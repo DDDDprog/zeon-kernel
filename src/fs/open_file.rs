@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct FileCtx {
     pub flags: OpenFlags,
     pub pos: u64,

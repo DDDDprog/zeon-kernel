@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 struct MpscState<T: Send> {
     data: VecDeque<T>,
     senders: usize,

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub static NUM_FORKS: AtomicUsize = AtomicUsize::new(0);
 
 bitflags! {

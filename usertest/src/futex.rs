@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 fn test_futex() {
     let mut futex_word: libc::c_uint = 0;
     let addr = &mut futex_word as *mut libc::c_uint;

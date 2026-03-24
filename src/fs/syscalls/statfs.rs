@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct StatFs {
     /// Type of filesystem
     f_type: FswordT,

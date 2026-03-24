@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub mod armv8_arch;
 
 const USER_HZ: u64 = 100;

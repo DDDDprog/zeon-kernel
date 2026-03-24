@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub async fn sys_fchmod(ctx: &ProcessCtx, fd: Fd, mode: u16) -> Result<usize> {
     let task = ctx.shared().clone();
     let file = task

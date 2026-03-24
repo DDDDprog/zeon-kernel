@@ -1,3 +1,6 @@
+# Zeon - Pure Rust Operating System
+# https://github.com/DDDDprog/zeon-kernel
+
 # Zeon - Zeon
 #!/usr/bin/env bash
 set -euo pipefail

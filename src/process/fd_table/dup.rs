@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub fn dup_fd(ctx: &ProcessCtx, fd: Fd, min_fd: Option<Fd>) -> Result<Fd> {
     let task = ctx.shared();
     let mut files = task.fd_table.lock_save_irq();

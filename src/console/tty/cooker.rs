@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct TtyInputCooker {
     cooked_buf: KPipe,
     eof_pending: CondVar<bool>,

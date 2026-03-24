@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct IoVec {
     pub iov_base: UA,
     pub iov_len: usize,

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// I2C Bus
 pub struct I2cBus {
     pub base_addr: usize,

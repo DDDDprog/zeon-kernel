@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub type InitFunc = fn(&mut PlatformBus, &mut DriverManager) -> Result<()>;
 
 pub struct PlatformBus {

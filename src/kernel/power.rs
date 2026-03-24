@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub static CAD_ENABLED: AtomicBool = AtomicBool::new(false);
 
 pub async fn sys_reboot(

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct TimeZone {
     _tz_minuteswest: i32,
     _tz_dsttime: i32,

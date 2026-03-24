@@ -1,3 +1,6 @@
+# Zeon - Pure Rust Operating System
+# https://github.com/DDDDprog/zeon-kernel
+
 # Zeon - Zeon
 [build]
 target = "aarch64-unknown-none-softfloat"

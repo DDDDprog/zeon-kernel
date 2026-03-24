@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub fn hostname() -> &'static SpinLock<String> {
     HOSTNAME.get_or_init(|| SpinLock::new(String::from("Zeon-machine")))
 }

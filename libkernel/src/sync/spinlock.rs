@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// A spinlock that also disables interrupts on the local core while held.
 ///
 /// This prevents deadlocks with interrupt handlers on the same core and

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct UserSigAction {
     pub sa_sigaction: TUA<extern "C" fn(i32)>,
     pub sa_flags: SigActionFlags,

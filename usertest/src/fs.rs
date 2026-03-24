@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 fn test_opendir() {
     let path = CString::new("/").unwrap();
     unsafe {

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub async fn sys_close(ctx: &ProcessCtx, fd: Fd) -> Result<usize> {
     close(ctx, fd).await?;
     Ok(0)

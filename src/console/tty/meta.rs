@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct WinSize {
     pub ws_row: u16,
     pub ws_col: u16,

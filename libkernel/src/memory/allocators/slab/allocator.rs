@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Slab manager for a specific size class.
 ///
 /// Manages a collection of slabs for a particular object size (size class). Two

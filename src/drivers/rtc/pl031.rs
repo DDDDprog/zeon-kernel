@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Driver for a PL031 real-time clock.
 pub struct PL031 {
     inner: arm_pl031::Rtc,

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// VirtIO Network Device
 pub struct VirtioNet {
     pub base_addr: usize,

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 impl VirtioHal {
     #[inline]
     fn pages_to_order(pages: usize) -> u8 {

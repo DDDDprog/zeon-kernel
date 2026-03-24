@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 /// Provides access to the current task's state.
 ///
 /// Any function that is marked with `ProcessCtx` should only be callable from a

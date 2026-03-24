@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub const EPERM: isize = -1;
 pub const ENOENT: isize = -2;
 pub const ESRCH: isize = -3;

@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct StatX {
     pub stx_mask: u32,             // Mask of supported fields
     pub stx_blksize: u32,          // Block size

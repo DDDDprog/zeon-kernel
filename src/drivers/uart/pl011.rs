@@ -1,3 +1,6 @@
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
 pub struct PL011 {
     inner: arm_pl011_uart::Uart<'static>,
 }
