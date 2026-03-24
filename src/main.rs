@@ -12,7 +12,21 @@
 
 use libkernel::arch::ArchImpl;
 use libkernel::proc::ProcessCtx;
+use libkernel::fs::BlockDevice;
+
 pub mod testing;
+pub mod drivers;
+pub mod fs;
+pub mod sched;
+pub mod arch;
+pub mod memory;
+pub mod net;
+pub mod process;
+pub mod console;
+pub mod clock;
+pub mod interrupts;
+pub mod sync;
+pub mod kernel;
 
 #[panic_handler]
 fn on_panic(info: &PanicInfo) -> ! {
