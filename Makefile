@@ -9,16 +9,17 @@ CARGO_BUILD := cargo build --release --target $(RUST_TARGET)
 all: build
 
 build:
-	$(CARGO_BUILD)
+	@echo "Building Zeon kernel for $(RUST_TARGET)..."
+	@RUSTUP_TOOLCHAIN=nightly-$(RUST_TARGET) $(CARGO_BUILD)
 
 test:
-	cargo test --package libkernel
+	@RUSTUP_TOOLCHAIN=nightly cargo test --package libkernel
 
 test-user:
-	cargo run --release -- /bin/usertest
+	@RUSTUP_TOOLCHAIN=nightly cargo run --release -- /bin/usertest
 
 run: image
-	cargo run --release -- /bin/ash
+	@RUSTUP_TOOLCHAIN=nightly cargo run --release -- /bin/ash
 
 image:
 	./scripts/create-image.sh

@@ -1,8 +1,7 @@
 # Zeon - Pure Rust Operating System
 # https://github.com/DDDDprog/zeon-kernel
 
-# Zeon - Zeon
 [toolchain]
 channel = "nightly"
-components = [ "rust-src", "llvm-tools-preview", "rustfmt", "clippy", "rust-analyzer" ]
+components = [ "rust-src", "rustfmt", "rust-analyzer" ]
 targets = ["aarch64-unknown-none-softfloat", "aarch64-unknown-linux-musl"]
