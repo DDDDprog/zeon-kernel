@@ -10,9 +10,14 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
-use libkernel::arch::ArchImpl;
-use libkernel::proc::ProcessCtx;
-use libkernel::fs::BlockDevice;
+// Import from local modules
+use crate::arch::ArchImpl;
+use crate::sched::{sched_init, spawn_kernel_work, dispatch_userspace_task};
+use crate::drivers::fdt_prober::get_fdt;
+use crate::drivers::fs::register_fs_drivers;
+use crate::process::{ProcessCtx, UserCtx};
+use crate::fs::BlockDevice;
+use crate::KOptions;
 
 pub mod testing;
 pub mod drivers;
