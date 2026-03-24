@@ -1,0 +1,101 @@
+use core::sync::atomic::AtomicUsize;
+
+use alloc::{collections::btree_map::BTreeMap, sync::Arc};
+
+use crate::sync::SpinLock;
+
+use super::{
+    Pgid, ProcessState, Sid, TG_LIST, Tgid, ThreadGroup,
+    rsrc_lim::ResourceLimits,
+    signal::{SigSet, SignalActionState},
+    wait::Notifiers,
+};
+
+/// A builder for creating ThreadGroup instances.
+pub struct ThreadGroupBuilder {
+    tgid: Tgid,
+    parent: Option<Arc<ThreadGroup>>,
+    umask: Option<u32>,
+    pri: Option<i8>,
+    sigstate: Option<Arc<SpinLock<SignalActionState>>>,
+    rsrc_lim: Option<Arc<SpinLock<ResourceLimits>>>,
+}
+
+impl ThreadGroupBuilder {
+    /// Creates a new ThreadGroupBuilder with the mandatory thread group ID.
+    pub fn new(tgid: Tgid) -> Self {
+        ThreadGroupBuilder {
+            tgid,
+            parent: None,
+            umask: None,
+            sigstate: None,
+            rsrc_lim: None,
+            pri: None,
+        }
+    }
+
+    /// Sets the parent of the thread group.
+    pub fn with_parent(mut self, parent: Arc<ThreadGroup>) -> Self {
+        self.parent = Some(parent);
+        self
+    }
+
+    /// Sets the signal state of the thread group.
+    pub fn with_sigstate(mut self, sigstate: Arc<SpinLock<SignalActionState>>) -> Self {
+        self.sigstate = Some(sigstate);
+        self
+    }
+
+    pub fn with_rsrc_lim(mut self, rsrc_lim: Arc<SpinLock<ResourceLimits>>) -> Self {
+        self.rsrc_lim = Some(rsrc_lim);
+        self
+    }
+
+    pub fn with_priority(mut self, priority: i8) -> Self {
+        self.pri = Some(priority);
+        self
+    }
+
+    /// Builds the ThreadGroup.
+    ///
+    /// If a sigstate has not been provided, a default one will be created.
+    pub fn build(self) -> Arc<ThreadGroup> {
+        let ret = Arc::new(ThreadGroup {
+            tgid: self.tgid,
+            pgid: SpinLock::new(
+                self.parent
+                    .as_ref()
+                    .map(|x| *x.pgid.lock_save_irq())
+                    .unwrap_or_else(|| Pgid(self.tgid.value())),
+            ),
+            sid: SpinLock::new(Sid(self.tgid.value())),
+            parent: SpinLock::new(self.parent.as_ref().map(Arc::downgrade)),
+            umask: SpinLock::new(self.umask.unwrap_or(0)),
+            children: SpinLock::new(BTreeMap::new()),
+            signals: self
+                .sigstate
+                .unwrap_or_else(|| Arc::new(SpinLock::new(SignalActionState::new_default()))),
+            rsrc_lim: self
+                .rsrc_lim
+                .unwrap_or_else(|| Arc::new(SpinLock::new(ResourceLimits::default()))),
+            pending_signals: SpinLock::new(SigSet::empty()),
+            child_notifiers: Notifiers::new(),
+            priority: SpinLock::new(self.pri.unwrap_or(0)),
+            utime: AtomicUsize::new(0),
+            stime: AtomicUsize::new(0),
+            last_account: AtomicUsize::new(0),
+            // Don't start from '0'. Since clone expects the parent to return
+            // the tid and the child to return '0', if we started from '0' we
+            // couldn't then differentiate between a child and a parent.
+            state: SpinLock::new(ProcessState::Running),
+            tasks: SpinLock::new(BTreeMap::new()),
+            executable: SpinLock::new(None),
+        });
+
+        TG_LIST
+            .lock_save_irq()
+            .insert(self.tgid, Arc::downgrade(&ret));
+
+        ret
+    }
+}
