@@ -1,3 +1,4 @@
+# Zeon Operating System - www.zeon.io
 #!/bin/bash
 # First and only argument: where to download the toolchain file
 
