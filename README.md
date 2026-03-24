@@ -1,4 +1,4 @@
-<!-- Zeon Operating System - www.zeon.io -->
+<!-- Zeon - Zeon -->
 # Zeon
 
 ![Architecture](https://img.shields.io/badge/arch-aarch64-blue)

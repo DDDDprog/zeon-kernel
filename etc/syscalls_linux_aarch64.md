@@ -1,4 +1,4 @@
-<!-- Zeon Operating System - www.zeon.io -->
+<!-- Zeon - Zeon -->
 # Syscalls
 
 | Number      | Name                    | Signature                                                                                                                                  | Symbol                              | Implemented |

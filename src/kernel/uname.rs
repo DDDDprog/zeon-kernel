@@ -1,54 +1,3 @@
-/*
- *  ____  ____      _    ____ ___ _____ ____ 
- * |  _ \|  _ \    / \  / ___|_   _/ ___| 
- * | |_) | |_) |  / _ \ \___ \ | | \___ \ 
- * |  __/|  _ <  / ___ \ ___) || |  ___) |
- * |_|   |_| \_\/_/   \____/ |_| |____/ 
- *
- * Zeon Operating System - www.zeon.io
- * 
- * This file is part of Zeon.
- * 
- * Zeon is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Zeon is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Zeon.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Copyright (c) 2015-2024 Zeon Team - All rights reserved
- */
-use crate::kernel::hostname::hostname;
-use crate::{
-    arch::{Arch, ArchImpl},
-    memory::uaccess::{UserCopyable, copy_to_user},
-};
-use alloc::ffi::CString;
-use core::ffi::CStr;
-use core::ffi::c_char;
-use core::str::FromStr;
-use libkernel::{error::Result, memory::address::TUA};
-
-const SYSNAME: &CStr = c"Zeon";
-
-/// Systemd uses the release field to determine compatibility.
-/// It's also necessary for libc programs; otherwise they exit with an error Kernel too old.
-const RELEASE: &CStr = c"4.2.3";
-
-///  POSIX specifies the order when using -a (equivalent to -snrvm):
-///   1. sysname (-s) - OS name
-///   2. nodename (-n) - hostname
-///   3. release (-r) - OS release
-///   4. version (-v) - OS version
-///   5. machine (-m) - hardware type
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct OldUtsname {
     sysname: [c_char; 65],
     nodename: [c_char; 65],
@@ -96,7 +45,7 @@ fn build_utsname() -> OldUtsname {
 
     copy_str_to_c_char_arr(&mut uts.release, RELEASE.to_bytes_with_nul());
 
-    let version = CString::from_str(env!("MOSS_VERSION")).unwrap();
+    let version = CString::from_str(env!("ZEON_VERSION")).unwrap();
     copy_str_to_c_char_arr(&mut uts.version, version.as_c_str().to_bytes_with_nul());
 
     let machine = CString::new(ArchImpl::name()).unwrap();

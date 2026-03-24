@@ -1,4 +1,4 @@
-# Zeon Operating System - www.zeon.io
+# Zeon - Zeon
 #!/usr/bin/env bash
 set -euo pipefail
 

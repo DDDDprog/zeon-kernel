@@ -1,4 +1,4 @@
-# Zeon Operating System - www.zeon.io
+# Zeon - Zeon
 [workspace]
 members = ["libkernel", "Zeon-macros", "usertest"]
 

@@ -1,4 +1,4 @@
-# Zeon Operating System - www.zeon.io
+# Zeon - Zeon
 [build]
 target = "aarch64-unknown-linux-musl"
 
