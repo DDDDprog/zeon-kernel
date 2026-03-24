@@ -10,6 +10,8 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
+use libkernel::arch::ArchImpl;
+use libkernel::proc::ProcessCtx;
 pub mod testing;
 
 #[panic_handler]

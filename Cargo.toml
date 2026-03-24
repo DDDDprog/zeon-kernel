@@ -1,9 +1,8 @@
 # Zeon - Pure Rust Operating System
 # https://github.com/DDDDprog/zeon-kernel
 
-# Zeon - Zeon
 [workspace]
-members = ["libkernel", "Zeon-macros", "usertest"]
+members = ["libkernel", "zeon-macros", "usertest"]
 
 [workspace.dependencies]
 async-trait = "0.1.89"
@@ -17,18 +16,18 @@ semicolon_if_nothing_returned = "warn"
 uninlined_format_args = "warn"
 
 [package]
-name = "Zeon"
+name = "zeon"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [[bin]]
-name = "Zeon"
+name = "zeon"
 test = true
 bench = false
 
 [dependencies]
 libkernel = { path = "libkernel" }
-Zeon-macros = { path = "Zeon-macros" }
+zeon-macros = { path = "zeon-macros" }
 
 aarch64-cpu = "11.1.0"
 arm-pl011-uart = { version = "0.5.0", default-features = false }
