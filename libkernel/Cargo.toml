@@ -5,7 +5,7 @@
 [package]
 name = "libkernel"
 version = "0.0.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
 async-trait = { workspace = true }
