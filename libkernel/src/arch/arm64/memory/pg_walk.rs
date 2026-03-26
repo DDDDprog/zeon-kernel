@@ -164,7 +164,7 @@ pub fn get_pte<PM: PageTableMapper>(
         l0_table,
         VirtMemoryRegion::new(va.page_aligned(), PAGE_SIZE),
         &mut walk_ctx,
-     , pte| {
+        pte| {
             descriptor = Some(pte);
             pte
         },
