@@ -1,4 +1,7 @@
 /*
+ * Zeon - Pure Rust Operating System
+ * https://github.com/DDDDprog/zeon-kernel
+ */
 
 pub trait PageTableEntry: Sized + Copy + Clone {
     /// Returns `true` if the entry is valid (i.e., not an Invalid/Fault entry).

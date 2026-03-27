@@ -1,4 +1,7 @@
 /*
+ * Zeon - Pure Rust Operating System
+ * https://github.com/DDDDprog/zeon-kernel
+ */
 
 pub mod pg_descriptors;
 pub mod pg_tables;

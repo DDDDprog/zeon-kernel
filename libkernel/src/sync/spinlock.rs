@@ -1,4 +1,7 @@
 /*
+ * Zeon - Pure Rust Operating System
+ * https://github.com/DDDDprog/zeon-kernel
+ */
 
 pub struct SpinLockIrq<T: ?Sized, CPU: CpuOps> {
     lock: AtomicBool,

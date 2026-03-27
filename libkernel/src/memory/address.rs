@@ -1,4 +1,7 @@
 /*
+ * Zeon - Pure Rust Operating System
+ * https://github.com/DDDDprog/zeon-kernel
+ */
 
 pub trait MemKind: sealed::Sealed + Ord + Clone + Copy + PartialEq + Eq {}
 

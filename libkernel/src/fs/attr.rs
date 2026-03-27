@@ -1,4 +1,7 @@
 /*
+ * Zeon - Pure Rust Operating System
+ * https://github.com/DDDDprog/zeon-kernel
+ */
 
 impl From<FileMode> for FilePermissions {
     fn from(mode: FileMode) -> Self {

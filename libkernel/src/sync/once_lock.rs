@@ -1,4 +1,7 @@
 /*
+ * Zeon - Pure Rust Operating System
+ * https://github.com/DDDDprog/zeon-kernel
+ */
 
 pub struct OnceLock<T, CPU: CpuOps> {
     inner: SpinLockIrq<Option<T>, CPU>,

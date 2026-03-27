@@ -1,4 +1,7 @@
 /*
+ * Zeon - Pure Rust Operating System
+ * https://github.com/DDDDprog/zeon-kernel
+ */
 
 pub struct MemoryRegion<T: MemKind> {
     address: Address<T, ()>,
