@@ -1,14 +1,7 @@
-/*
- *  ███████╗███████╗ ██████╗ ███╗   ██╗
- *  ╚══███╔╝██╔════╝██╔═══██╗████╗  ██║
- *    ███╔╝ █████╗  ██║   ██║██╔██╗ ██║
- *   ███╔╝  ██╔══╝  ██║   ██║██║╚██╗██║
- *  ███████╗███████╗╚██████╔╝██║ ╚████║
- *  ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
- *
- * Zeon - Pure Rust Operating System
- * https://github.com/DDDDprog/zeon-kernel
- */
+// Zeon - Pure Rust Operating System
+// https://github.com/DDDDprog/zeon-kernel
+
+#![feature(lang_items)]
 
 pub mod arch;
 pub mod driver;
@@ -18,8 +11,6 @@ pub mod memory;
 pub mod pod;
 pub mod proc;
 pub mod sync;
-
-extern crate alloc;
 
 pub trait CpuOps: 'static {
     /// Returns the ID of the currently executing core.
