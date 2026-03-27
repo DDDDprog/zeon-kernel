@@ -1,14 +1,4 @@
 /*
- *  ███████╗███████╗ ██████╗ ███╗   ██╗
- *  ╚══███╔╝██╔════╝██╔═══██╗████╗  ██║
- *    ███╔╝ █████╗  ██║   ██║██╔██╗ ██║
- *   ███╔╝  ██╔══╝  ██║   ██║██║╚██╗██║
- *  ███████╗███████╗╚██████╔╝██║ ╚████║
- *  ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
- *
- * Zeon - Pure Rust Operating System
- * https://github.com/DDDDprog/zeon-kernel
- */
 pub mod gettime;
 pub mod realtime;
 pub mod settime;

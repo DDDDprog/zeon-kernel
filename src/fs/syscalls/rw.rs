@@ -1,14 +1,4 @@
 /*
- *  ███████╗███████╗ ██████╗ ███╗   ██╗
- *  ╚══███╔╝██╔════╝██╔═══██╗████╗  ██║
- *    ███╔╝ █████╗  ██║   ██║██╔██╗ ██║
- *   ███╔╝  ██╔══╝  ██║   ██║██║╚██╗██║
- *  ███████╗███████╗╚██████╔╝██║ ╚████║
- *  ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
- *
- * Zeon - Pure Rust Operating System
- * https://github.com/DDDDprog/zeon-kernel
- */
 
 pub async fn sys_write(ctx: &ProcessCtx, fd: Fd, user_buf: UA, count: usize) -> Result<usize> {
     let file = ctx

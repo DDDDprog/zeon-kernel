@@ -1,14 +1,4 @@
 /*
- *  ███████╗███████╗ ██████╗ ███╗   ██╗
- *  ╚══███╔╝██╔════╝██╔═══██╗████╗  ██║
- *    ███╔╝ █████╗  ██║   ██║██╔██╗ ██║
- *   ███╔╝  ██╔══╝  ██║   ██║██║╚██╗██║
- *  ███████╗███████╗╚██████╔╝██║ ╚████║
- *  ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
- *
- * Zeon - Pure Rust Operating System
- * https://github.com/DDDDprog/zeon-kernel
- */
 
 pub async fn sys_fcntl(ctx: &ProcessCtx, fd: Fd, op: u32, arg: usize) -> Result<usize> {
     let task = ctx.shared();

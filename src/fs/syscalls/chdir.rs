@@ -1,14 +1,4 @@
 /*
- *  ███████╗███████╗ ██████╗ ███╗   ██╗
- *  ╚══███╔╝██╔════╝██╔═══██╗████╗  ██║
- *    ███╔╝ █████╗  ██║   ██║██╔██╗ ██║
- *   ███╔╝  ██╔══╝  ██║   ██║██║╚██╗██║
- *  ███████╗███████╗╚██████╔╝██║ ╚████║
- *  ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝
- *
- * Zeon - Pure Rust Operating System
- * https://github.com/DDDDprog/zeon-kernel
- */
 
 pub async fn sys_getcwd(ctx: &ProcessCtx, buf: UA, len: usize) -> Result<usize> {
     let task = ctx.shared().clone();
