@@ -1,6 +1,10 @@
 // Zeon - Pure Rust Operating System
 // https://github.com/DDDDprog/zeon-kernel
 
+#![no_std]
+
+extern crate alloc;
+
 pub mod arch;
 pub mod driver;
 pub mod error;
@@ -9,6 +13,13 @@ pub mod memory;
 pub mod pod;
 pub mod proc;
 pub mod sync;
+
+// Re-export common types for no_std compatibility
+pub use core::marker::{Send, Sync, Sized};
+pub use core::result::Result;
+pub use core::option::Option;
+pub use alloc::{vec::Vec, boxed::Box, string::String, sync::Arc};
+pub use alloc::collections::{BTreeMap, VecDeque};
 
 pub trait CpuOps: 'static {
     /// Returns the ID of the currently executing core.
