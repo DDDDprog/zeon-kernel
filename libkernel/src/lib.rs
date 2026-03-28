@@ -1,11 +1,6 @@
 // Zeon - Pure Rust Operating System
 // https://github.com/DDDDprog/zeon-kernel
 
-#![no_std]
-#![feature(lang_items)]
-
-extern crate alloc;
-
 pub mod arch;
 pub mod driver;
 pub mod error;
