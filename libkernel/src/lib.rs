@@ -14,26 +14,47 @@ pub mod pod;
 pub mod proc;
 pub mod sync;
 
-// Re-export common types for no_std compatibility
-pub use core::marker::{Send, Sync, Sized};
-pub use core::result::Result;
-pub use core::option::Option;
-pub use core::sync::atomic::Ordering;
-pub use core::hint::spin_loop;
-pub use core::marker::PhantomData;
-pub use core::ops::{Deref, DerefMut};
-pub use core::pin::Pin;
-pub use core::task::{Context, Poll, Future, Waker};
-pub use alloc::{vec::Vec, boxed::Box, string::String, sync::Arc};
-pub use alloc::collections::{BTreeMap, VecDeque};
+// Prelude - import this for no_std compatibility
+pub mod prelude {
+    // Core types
+    pub use core::marker::{Send, Sync, Sized};
+    pub use core::result::Result;
+    pub use core::option::Option;
+    pub use core::sync::atomic::{Ordering, AtomicBool};
+    pub use core::hint::spin_loop;
+    pub use core::marker::PhantomData;
+    pub use core::ops::{Deref, DerefMut};
+    pub use core::pin::Pin;
+    pub use core::task::{Context, Poll, Future, Waker};
+    pub use core::cell::{UnsafeCell, RefMut};
+    
+    // Alloc types
+    pub use alloc::{vec::Vec, boxed::Box, string::String, sync::Arc};
+    pub use alloc::collections::{BTreeMap, VecDeque};
+    
+    // Kernel types
+    pub use crate::CpuOps;
+    pub use crate::memory::page::PageFrame;
+    pub use crate::memory::permissions::PtePermissions;
+    pub use crate::memory::address::VA;
+    pub use crate::memory::region::{VirtMemoryRegion, PhysMemoryRegion};
+    pub use crate::memory::allocators::phys::FrameAdapter;
+    pub use crate::memory::allocators::slab::allocator::SlabFrameAdapter as FrameAdapter as SlabFrameAdapter;
+    pub use crate::sync::spinlock::SpinLockIrq;
+    pub use crate::sync::mutex::Mutex;
+    pub use crate::sync::rwlock::Rwlock;
+    pub use crate::sync::per_cpu::PerCpu;
+    pub use crate::fs::attr::{FilePermissions, FileMode, AccessMode};
+    pub use crate::fs::filesystems::ext4::inode::Ext4Inode as ExtInode;
+    pub use crate::fs::filesystems::ext4::inode::Ext4PathBuf as ExtPathBuf;
+    pub use crate::fs::filesystems::fat32::bpb::BiosParameterBlock;
+    pub use crate::fs::filesystems::fat32::fat::Fat;
+    pub use crate::fs::filesystems::fat32::node::Fat32DirNode;
+    pub use crate::proc::caps::{Capabilities, CapabilitiesFlags};
+    pub use sealed;
+}
 
-pub use crate::memory::page::PageFrame;
-pub use crate::memory::permissions::PtePermissions;
-pub use crate::memory::address::VA;
-pub use crate::memory::region::{VirtMemoryRegion, PhysMemoryRegion};
-pub use crate::sync::spinlock::SpinLockIrq;
-pub use crate::fs::attr::{FilePermissions, FileMode, AccessMode};
-pub use crate::proc::caps::{Capabilities, CapabilitiesFlags};
+pub use prelude::*;
 pub use sealed;
 
 pub trait CpuOps: 'static {
