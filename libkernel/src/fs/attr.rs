@@ -3,6 +3,47 @@
  * https://github.com/DDDDprog/zeon-kernel
  */
 
+use crate::proc::caps::{Capabilities, CapabilitiesFlags};
+use crate::proc::ids::{Gid, Uid};
+use crate::fs::{FileType, InodeId};
+use crate::error::{KernelError, Result};
+use core::time::Duration;
+
+bitflags::bitflags! {
+    pub struct FilePermissions: u32 {
+        const S_IRUSR = 0o400;
+        const S_IWUSR = 0o200;
+        const S_IXUSR = 0o100;
+        const S_IRGRP = 0o040;
+        const S_IWGRP = 0o020;
+        const S_IXGRP = 0o010;
+        const S_IROTH = 0o004;
+        const S_IWOTH = 0o002;
+        const S_IXOTH = 0o001;
+    }
+}
+
+bitflags::bitflags! {
+    pub struct FileMode: u32 {
+        const S_IFMT = 0o170000;
+        const S_IFREG = 0o100000;
+        const S_IFDIR = 0o040000;
+        const S_IFLNK = 0o120000;
+        const S_IFBLK = 0o060000;
+        const S_IFCHR = 0o020000;
+        const S_IFIFO = 0o010000;
+        const S_IFSOCK = 0o140000;
+    }
+}
+
+bitflags::bitflags! {
+    pub struct AccessMode: u32 {
+        const R_OK = 4;
+        const W_OK = 2;
+        const X_OK = 1;
+    }
+}
+
 impl From<FileMode> for FilePermissions {
     fn from(mode: FileMode) -> Self {
         FilePermissions::from_bits_truncate(mode.bits())
