@@ -55,7 +55,11 @@ pub mod prelude {
 }
 
 pub use prelude::*;
+
+// Also export everything at root level for convenience
 pub use sealed;
+pub use CpuOps;
+pub use crate::CpuOps;
 
 pub trait CpuOps: 'static {
     /// Returns the ID of the currently executing core.
