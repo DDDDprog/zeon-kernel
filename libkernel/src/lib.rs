@@ -39,7 +39,7 @@ pub mod prelude {
     pub use crate::memory::address::VA;
     pub use crate::memory::region::{VirtMemoryRegion, PhysMemoryRegion};
     pub use crate::memory::allocators::phys::FrameAdapter;
-    pub use crate::memory::allocators::slab::allocator::SlabFrameAdapter as FrameAdapter as SlabFrameAdapter;
+    pub use crate::memory::allocators::slab::allocator::SlabFrameAdapter;
     pub use crate::sync::spinlock::SpinLockIrq;
     pub use crate::sync::mutex::Mutex;
     pub use crate::sync::rwlock::Rwlock;
