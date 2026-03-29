@@ -18,8 +18,23 @@ pub mod sync;
 pub use core::marker::{Send, Sync, Sized};
 pub use core::result::Result;
 pub use core::option::Option;
+pub use core::sync::atomic::Ordering;
+pub use core::hint::spin_loop;
+pub use core::marker::PhantomData;
+pub use core::ops::{Deref, DerefMut};
+pub use core::pin::Pin;
+pub use core::task::{Context, Poll, Future, Waker};
 pub use alloc::{vec::Vec, boxed::Box, string::String, sync::Arc};
 pub use alloc::collections::{BTreeMap, VecDeque};
+
+pub use crate::memory::page::PageFrame;
+pub use crate::memory::permissions::PtePermissions;
+pub use crate::memory::address::VA;
+pub use crate::memory::region::{VirtMemoryRegion, PhysMemoryRegion};
+pub use crate::sync::spinlock::SpinLockIrq;
+pub use crate::fs::attr::{FilePermissions, FileMode, AccessMode};
+pub use crate::proc::caps::{Capabilities, CapabilitiesFlags};
+pub use sealed;
 
 pub trait CpuOps: 'static {
     /// Returns the ID of the currently executing core.
