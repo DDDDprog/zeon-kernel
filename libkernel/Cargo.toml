@@ -16,6 +16,7 @@ log = { workspace = true }
 object = { version = "0.38.0", default-features = false, features = ["core", "elf", "read_core"] }
 paste = { workspace = true }
 ringbuf = { version = "0.4.8", default-features = false, features = ["alloc"] }
+sealed = "0.5"
 thiserror = { version = "2.0.12", default-features = false }
 tock-registers = "0.10.1"
 
